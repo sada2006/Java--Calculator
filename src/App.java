@@ -1,20 +1,17 @@
 import java.util.*;
 
 public class App {
-    public static Calculator calculator=new Calculator();
-    public static History history=new History();
+    public static Calculator calculator = new Calculator();
+    public static History history = new History();
     public static Scanner sc = new Scanner(System.in);
-   
-
-    
 
     public static void newCalculation() {
 
         double num1;
-        if(calculator.usePreviousResult){
-            num1=calculator.previousResult;
-            calculator.usePreviousResult=false;
-        }else{
+        if (calculator.usePreviousResult) {
+            num1 = calculator.previousResult;
+            calculator.usePreviousResult = false;
+        } else {
             while (true) {
                 System.out.println("Enter number 1: ");
 
@@ -27,8 +24,7 @@ public class App {
                 }
             }
         }
-        
-        
+
         System.out.println("Enter operation to perform (+,-,*,/,sqrt,^,mod,%)");
         String operand = sc.next();
         String lcase = operand.toLowerCase();
@@ -51,53 +47,50 @@ public class App {
         }
 
         double result;
-        
+
         try {
             result = calculator.calculate(lcase, num1, num2);
         } catch (ArithmeticException | IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return;
         }
-        
 
-            StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
-            if (!lcase.equals("sqrt")) {
-                System.out.println("The result of " + num1 + " " + operand + " " + num2 + " = " + result);
-                calculator.previousResult=result;
-                calculator.usePreviousResult=true;
-                sb.append(num1);
-                sb.append(" ");
-                sb.append(lcase);
-                sb.append(" ");
-                sb.append(num2);
-                sb.append(" ");
-                sb.append("=");
-                sb.append(" ");
-                sb.append(result);
+        if (!lcase.equals("sqrt")) {
+            System.out.println("The result of " + num1 + " " + operand + " " + num2 + " = " + result);
+            calculator.previousResult = result;
+            calculator.usePreviousResult = true;
+            sb.append(num1);
+            sb.append(" ");
+            sb.append(lcase);
+            sb.append(" ");
+            sb.append(num2);
+            sb.append(" ");
+            sb.append("=");
+            sb.append(" ");
+            sb.append(result);
 
-                String finalString = sb.toString();
-                history.addHistory(finalString);
+            String finalString = sb.toString();
+            history.addHistory(finalString);
 
-            } else{
+        } else {
 
-                System.out.println("The Square root of " + num1 + " = " + result);
-                calculator.previousResult=result;
-                calculator.usePreviousResult=true;
-                sb.append(lcase);
-                sb.append(" ");
-                sb.append(num1);
-                sb.append("=");
-                sb.append(result);
+            System.out.println("The Square root of " + num1 + " = " + result);
+            calculator.previousResult = result;
+            calculator.usePreviousResult = true;
+            sb.append(lcase);
+            sb.append(" ");
+            sb.append(num1);
+            sb.append("=");
+            sb.append(result);
 
-                String finalString = sb.toString();
-                history.addHistory(finalString);
-            
-            }
-        
+            String finalString = sb.toString();
+            history.addHistory(finalString);
+
+        }
+
     }
-
-   
 
     public static boolean exitapp() {
 
@@ -121,7 +114,7 @@ public class App {
     }
 
     public static void main(String[] args) {
-        
+
         int option = 0;
 
         do {
@@ -161,12 +154,12 @@ public class App {
                     break;
 
                 case 3:
-                    if(!calculator.usePreviousResult){
+                    if (!calculator.usePreviousResult) {
                         System.out.println("No Previous Calculation Found");
-                    }else{
-                        System.out.println("Previous Result is "+ calculator.previousResult);
-                        System.out.println("Your num1 will be: "+calculator.previousResult);
-                        calculator.usePreviousResult=true;
+                    } else {
+                        System.out.println("Previous Result is " + calculator.previousResult);
+                        System.out.println("Your num1 will be: " + calculator.previousResult);
+                        calculator.usePreviousResult = true;
                         newCalculation();
                     }
                     break;

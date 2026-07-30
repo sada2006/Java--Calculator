@@ -1,18 +1,42 @@
-## Getting Started
+# Java Calculator
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A console-based calculator application built using Java and Object-Oriented Programming.
 
-## Folder Structure
+## Features
 
-The workspace contains two folders by default, where:
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Square Root
+- Power
+- Modulus
+- Percentage
+- Input Validation
+- Calculation History
+- Reuse Previous Result
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Technologies Used
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- Java
+- OOP
+- ArrayList
+- Exception Handling
+- Scanner
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Project Structure
 
-## Dependency Management
+src/
+├── App.java
+├── Calculator.java
+└── History.java
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## How to Run
+
+1. Compile the project.
+2. Run App.java.
+3. Choose an option from the menu.
+
+## Author
+
+Toluchuri Sadasivarao
